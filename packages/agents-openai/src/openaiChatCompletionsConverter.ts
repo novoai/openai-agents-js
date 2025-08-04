@@ -52,6 +52,14 @@ export function extractAllAssistantContent(
     } else if (c.type === 'audio' || c.type === 'image') {
       // ignoring audio as it is handled on the assistant message level
       continue;
+    } else if (c.type === 'input_image') {
+      out.push({
+        type: 'image_url',
+        image_url: {
+          url: c.image,
+          ...c.providerData,
+        },
+      } as any);
     } else {
       const exhaustive = c satisfies never; // ensures that the type is exhaustive
       throw new Error(`Unknown content: ${JSON.stringify(exhaustive)}`);
