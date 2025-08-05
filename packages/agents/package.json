@@ -1,8 +1,8 @@
 {
-  "name": "@openai/agents",
-  "repository": "https://github.com/openai/openai-agents-js",
-  "homepage": "https://openai.github.io/openai-agents-js/",
-  "version": "0.0.14",
+  "name": "@novoaiorg/openai-agents",
+  "repository": "https://github.com/novoai/openai-agents-js",
+  "homepage": "https://github.com/novoai/openai-agents-js",
+  "version": "0.0.14-patch.dev.10",
   "description": "The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows.",
   "author": "OpenAI <support@openai.com>",
   "main": "dist/index.js",
@@ -39,9 +39,9 @@
     "build-check": "tsc --noEmit -p ./tsconfig.test.json"
   },
   "dependencies": {
-    "@openai/agents-core": "workspace:*",
-    "@openai/agents-openai": "workspace:*",
-    "@openai/agents-realtime": "workspace:*",
+    "@novoaiorg/openai-agents-core": "^0.0.14-patch.dev.1",
+    "@novoaiorg/openai-agents-openai": "^0.0.14-patch.dev.2",
+    "@novoaiorg/openai-agents-realtime": "^0.0.14-patch.dev.2",
     "openai": "^5.10.1",
     "debug": "^4.4.0"
   },

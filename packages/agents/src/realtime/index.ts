@@ -1,1 +1,1 @@
-export * from '@openai/agents-realtime';
+export * from '@novoaiorg/openai-agents-realtime';
