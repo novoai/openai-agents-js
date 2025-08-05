@@ -4,7 +4,7 @@ import {
   Handoff,
   TextOutput,
   UnknownContext,
-} from '@openai/agents-core';
+} from '@novoaiorg/openai-agents-core';
 import { RealtimeContextData } from './realtimeSession';
 
 export type RealtimeAgentConfiguration<TContext = UnknownContext> = Partial<

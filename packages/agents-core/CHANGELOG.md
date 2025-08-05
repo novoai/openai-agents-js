@@ -1,4 +1,4 @@
-# @openai/agents-core
+# @novoaiorg/openai-agents-core
 
 ## 0.0.14
 

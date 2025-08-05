@@ -1,9 +1,9 @@
 // Use function instead of exporting the value to prevent
-// circular dependency resolution issues caused by other exports in '@openai/agents-core/_shims'
+// circular dependency resolution issues caused by other exports in '@novoaiorg/openai-agents-core/_shims'
 import {
   loadEnv as _loadEnv,
   isBrowserEnvironment,
-} from '@openai/agents-core/_shims';
+} from '@novoaiorg/openai-agents-core/_shims';
 
 /**
  * Loads environment variables from the process environment.

@@ -5,13 +5,13 @@ import {
   resetCurrentSpan,
   createGenerationSpan,
   setCurrentSpan,
-} from '@openai/agents-core';
+} from '@novoaiorg/openai-agents-core';
 import type {
   ModelRequest,
   ModelResponse,
   ResponseStreamEvent,
   SerializedOutputType,
-} from '@openai/agents-core';
+} from '@novoaiorg/openai-agents-core';
 import OpenAI from 'openai';
 import type { Stream } from 'openai/streaming';
 import logger from './logger';
@@ -22,8 +22,8 @@ import type {
   ResponseFormatJSONSchema,
   ResponseFormatJSONObject,
 } from 'openai/resources/shared';
-import { Span } from '@openai/agents-core/dist/tracing/spans';
-import { GenerationSpanData } from '@openai/agents-core/dist/tracing/spans';
+import { Span } from '@novoaiorg/openai-agents-core/dist/tracing/spans';
+import { GenerationSpanData } from '@novoaiorg/openai-agents-core/dist/tracing/spans';
 import { convertChatCompletionsStreamToResponses } from './openaiChatCompletionsStreaming';
 import {
   convertToolChoice,
@@ -31,7 +31,7 @@ import {
   convertHandoffTool,
   itemsToMessages,
 } from './openaiChatCompletionsConverter';
-import { protocol } from '@openai/agents-core';
+import { protocol } from '@novoaiorg/openai-agents-core';
 
 export const FAKE_ID = 'FAKE_ID';
 
@@ -67,7 +67,7 @@ export class OpenAIChatCompletionsModel implements Model {
     const output: protocol.OutputModelItem[] = [];
     if (response.choices && response.choices[0]) {
       const message = response.choices[0].message;
-      
+
       if (
         message.content !== undefined &&
         message.content !== null &&

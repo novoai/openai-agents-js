@@ -1,4 +1,4 @@
-import { EventEmitter } from '@openai/agents-core/_shims';
+import { EventEmitter } from '@novoaiorg/openai-agents-core/_shims';
 import {
   RealtimeClientMessage,
   RealtimeSessionConfig,

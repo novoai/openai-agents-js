@@ -14,7 +14,7 @@ import {
   OpenAIRealtimeBaseOptions,
 } from './openaiRealtimeBase';
 import { base64ToArrayBuffer, HEADERS, WEBSOCKET_META } from './utils';
-import { UserError } from '@openai/agents-core';
+import { UserError } from '@novoaiorg/openai-agents-core';
 import { TransportLayerAudio } from './transportLayerEvents';
 import { parseRealtimeEvent } from './openaiRealtimeEvents';
 

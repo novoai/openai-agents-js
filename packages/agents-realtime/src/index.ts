@@ -79,4 +79,4 @@ export {
   OutputGuardrailTripwireTriggered,
   tool,
   UserError,
-} from '@openai/agents-core';
+} from '@novoaiorg/openai-agents-core';

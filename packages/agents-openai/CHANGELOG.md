@@ -8,14 +8,14 @@
 - Updated dependencies [08dd469]
 - Updated dependencies [d9c4ddf]
 - Updated dependencies [fba44d9]
-  - @openai/agents-core@0.0.14
+  - @novoaiorg/openai-agents-core@0.0.14
 
 ## 0.0.13
 
 ### Patch Changes
 
 - Updated dependencies [bd463ef]
-  - @openai/agents-core@0.0.13
+  - @novoaiorg/openai-agents-core@0.0.13
 
 ## 0.0.12
 
@@ -30,7 +30,7 @@
 - Updated dependencies [046f8cc]
 - Updated dependencies [ed66acf]
 - Updated dependencies [40dc0be]
-  - @openai/agents-core@0.0.12
+  - @novoaiorg/openai-agents-core@0.0.12
 
 ## 0.0.11
 
@@ -40,7 +40,7 @@
 - Updated dependencies [a60eabe]
 - Updated dependencies [a153963]
 - Updated dependencies [17077d8]
-  - @openai/agents-core@0.0.11
+  - @novoaiorg/openai-agents-core@0.0.11
 
 ## 0.0.10
 
@@ -52,7 +52,7 @@
 - Updated dependencies [9c60282]
 - Updated dependencies [f61fd18]
 - Updated dependencies [c248a7d]
-  - @openai/agents-core@0.0.10
+  - @novoaiorg/openai-agents-core@0.0.10
 
 ## 0.0.9
 
@@ -60,7 +60,7 @@
 
 - Updated dependencies [9028df4]
 - Updated dependencies [ce62f7c]
-  - @openai/agents-core@0.0.9
+  - @novoaiorg/openai-agents-core@0.0.9
 
 ## 0.0.8
 
@@ -75,7 +75,7 @@
 - Updated dependencies [9e6db14]
 - Updated dependencies [0565bf1]
 - Updated dependencies [52eb3f9]
-  - @openai/agents-core@0.0.8
+  - @novoaiorg/openai-agents-core@0.0.8
 
 ## 0.0.7
 
@@ -87,7 +87,7 @@
 - Updated dependencies [77c603a]
 - Updated dependencies [1fccdca]
 - Updated dependencies [2fae25c]
-  - @openai/agents-core@0.0.7
+  - @novoaiorg/openai-agents-core@0.0.7
 
 ## 0.0.6
 
@@ -95,7 +95,7 @@
 
 - Updated dependencies [2c6cfb1]
 - Updated dependencies [36a401e]
-  - @openai/agents-core@0.0.6
+  - @novoaiorg/openai-agents-core@0.0.6
 
 ## 0.0.5
 
@@ -104,7 +104,7 @@
 - adeb218: Ignore empty tool list when calling LLM
 - cbd4deb: feat: handle unknown hosted tools in responses model
 - Updated dependencies [544ed4b]
-  - @openai/agents-core@0.0.5
+  - @novoaiorg/openai-agents-core@0.0.5
 
 ## 0.0.4
 
@@ -115,7 +115,7 @@
 - Updated dependencies [6683db0]
 - Updated dependencies [78811c6]
 - Updated dependencies [426ad73]
-  - @openai/agents-core@0.0.4
+  - @novoaiorg/openai-agents-core@0.0.4
 
 ## 0.0.3
 
@@ -124,7 +124,7 @@
 - 0474de9: Fix incorrect handling of chat completions mode for handoff
 - Updated dependencies [d7fd8dc]
 - Updated dependencies [284d0ab]
-  - @openai/agents-core@0.0.3
+  - @novoaiorg/openai-agents-core@0.0.3
 
 ## 0.0.2
 
@@ -132,7 +132,7 @@
 
 - b4942fa: Fix #5 setDefaultOpenAIClient issue in agents-openai package
 - Updated dependencies [a2979b6]
-  - @openai/agents-core@0.0.2
+  - @novoaiorg/openai-agents-core@0.0.2
 
 ## 0.0.1
 
@@ -140,7 +140,7 @@
 
 - aaa6d08: Initial release
 - Updated dependencies [aaa6d08]
-  - @openai/agents-core@0.0.1
+  - @novoaiorg/openai-agents-core@0.0.1
 
 ## 0.0.1-next.0
 
@@ -148,4 +148,4 @@
 
 - Initial release
 - Updated dependencies
-  - @openai/agents-core@0.0.1-next.0
+  - @novoaiorg/openai-agents-core@0.0.1-next.0

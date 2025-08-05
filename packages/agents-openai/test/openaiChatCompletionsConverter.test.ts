@@ -7,12 +7,12 @@ import {
   toolToOpenAI,
   convertHandoffTool,
 } from '../src/openaiChatCompletionsConverter';
-import { protocol, UserError } from '@openai/agents-core';
+import { protocol, UserError } from '@novoaiorg/openai-agents-core';
 import type {
   SerializedFunctionTool,
   SerializedHandoff,
   SerializedTool,
-} from '@openai/agents-core/model';
+} from '@novoaiorg/openai-agents-core/model';
 
 /**
  * Tests around the helpers converting internal protocol structures to the

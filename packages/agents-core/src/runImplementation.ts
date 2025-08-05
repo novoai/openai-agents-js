@@ -618,6 +618,7 @@ export async function executeToolsAndSideEffects<TContext>(
   );
 
   if (hasMediaToInject) {
+    console.log('Injecting Media!');
     return new SingleStepResult(
       originalInput,
       newResponse,

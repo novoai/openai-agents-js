@@ -1,4 +1,4 @@
-import { RuntimeEventEmitter, Usage } from '@openai/agents-core';
+import { RuntimeEventEmitter, Usage } from '@novoaiorg/openai-agents-core';
 import type { MessageEvent as WebSocketMessageEvent } from 'ws';
 
 import {
@@ -29,7 +29,7 @@ import {
   TransportToolCallEvent,
 } from './transportLayerEvents';
 import { arrayBufferToBase64, diffRealtimeHistory } from './utils';
-import { EventEmitterDelegate } from '@openai/agents-core/utils';
+import { EventEmitterDelegate } from '@novoaiorg/openai-agents-core/utils';
 
 /**
  * The models that are supported by the OpenAI Realtime API.
