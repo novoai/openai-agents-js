@@ -38,7 +38,14 @@ import { Computer } from './computer';
 import { RunState } from './runState';
 import { isZodObject } from './utils';
 import * as ProviderData from './types/providerData';
-import { ToolOutputWithMedia } from './types/tool';
+
+interface ToolOutputWithMedia {
+  text: string; // Required text response for OpenAI API
+  media?: {
+    type: 'image';
+    url: string;
+  }[];
+}
 
 type ToolRunHandoff = {
   toolCall: protocol.FunctionCallItem;
@@ -469,20 +476,12 @@ export async function executeToolsAndSideEffects<TContext>(
         content: [
           {
             type: 'input_text',
-            text: 'This is item have a media', // Empty text, just showing the image
+            text: functionResult.runItem.rawItem.providerData?.text, // Empty text, just showing the image
           },
-          ...media.map(
-            (m: {
-              type: 'image' | 'file';
-              url?: string;
-              data?: string;
-              mimeType: string;
-              alt?: string;
-            }) => ({
-              type: 'input_image' as const,
-              image: m.url || `data:${m.mimeType};base64,${m.data}`,
-            }),
-          ),
+          ...media.map((m: { type: 'image'; url: string }) => ({
+            type: 'input_image' as const,
+            image: m.url,
+          })),
         ],
       };
 
