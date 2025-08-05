@@ -460,7 +460,6 @@ export async function executeToolsAndSideEffects<TContext>(
 
   newItems = newItems.concat(functionResults.map((r) => r.runItem));
 
-  let needsRerun = false;
   for (const functionResult of functionResults) {
     if (
       functionResult.type === 'function_output' &&
@@ -489,7 +488,6 @@ export async function executeToolsAndSideEffects<TContext>(
       newItems.push(
         new RunMessageOutputItem(mediaMessage, agent as Agent<unknown, 'text'>),
       );
-      needsRerun = true;
     }
   }
 
@@ -614,7 +612,12 @@ export async function executeToolsAndSideEffects<TContext>(
         )
       : undefined;
 
-  if (needsRerun) {
+  const hasMediaToInject = functionResults.some(
+    (r) =>
+      r.type === 'function_output' && r.runItem.rawItem.providerData?.media,
+  );
+
+  if (hasMediaToInject) {
     return new SingleStepResult(
       originalInput,
       newResponse,
