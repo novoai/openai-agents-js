@@ -475,7 +475,7 @@ export async function executeToolsAndSideEffects<TContext>(
         content: [
           {
             type: 'input_text',
-            text: functionResult.runItem.rawItem.providerData?.text, // Empty text, just showing the image
+            text: functionResult.runItem.rawItem.providerData?.text,
           },
           ...media.map((m: { type: 'image'; url: string }) => ({
             type: 'input_image' as const,
