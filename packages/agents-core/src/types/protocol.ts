@@ -234,6 +234,7 @@ export const AssistantContent = z.discriminatedUnion('type', [
   InputText,
   AudioContent,
   ImageContent,
+  InputImage,
 ]);
 
 export type AssistantContent = z.infer<typeof AssistantContent>;

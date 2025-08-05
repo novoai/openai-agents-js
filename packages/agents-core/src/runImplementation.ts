@@ -39,6 +39,14 @@ import { RunState } from './runState';
 import { isZodObject } from './utils';
 import * as ProviderData from './types/providerData';
 
+interface ToolOutputWithMedia {
+  text: string; // Required text response for OpenAI API
+  media?: {
+    type: 'image';
+    url: string;
+  }[];
+}
+
 type ToolRunHandoff = {
   toolCall: protocol.FunctionCallItem;
   handoff: Handoff;
@@ -451,6 +459,38 @@ export async function executeToolsAndSideEffects<TContext>(
   ]);
 
   newItems = newItems.concat(functionResults.map((r) => r.runItem));
+
+  for (const functionResult of functionResults) {
+    if (
+      functionResult.type === 'function_output' &&
+      functionResult.runItem.rawItem.providerData?.media
+    ) {
+      const media = functionResult.runItem.rawItem.providerData.media;
+
+      // Create assistant message with the media
+      const mediaMessage: protocol.AssistantMessageItem = {
+        type: 'message',
+        role: 'assistant',
+        status: 'completed',
+        content: [
+          {
+            type: 'input_text',
+            text: functionResult.runItem.rawItem.providerData?.text,
+          },
+          ...media.map((m: { type: 'image'; url: string }) => ({
+            type: 'input_image' as const,
+            image: m.url,
+          })),
+        ],
+      };
+
+      // Add assistant message with image
+      newItems.push(
+        new RunMessageOutputItem(mediaMessage, agent as Agent<unknown, 'text'>),
+      );
+    }
+  }
+
   newItems = newItems.concat(computerResults);
 
   // run hosted MCP approval requests
@@ -572,6 +612,21 @@ export async function executeToolsAndSideEffects<TContext>(
         )
       : undefined;
 
+  const hasMediaToInject = functionResults.some(
+    (r) =>
+      r.type === 'function_output' && r.runItem.rawItem.providerData?.media,
+  );
+
+  if (hasMediaToInject) {
+    return new SingleStepResult(
+      originalInput,
+      newResponse,
+      preStepItems,
+      newItems,
+      { type: 'next_step_run_again' },
+    );
+  }
+
   // if there is no output we just run again
   if (!potentialFinalOutput) {
     return new SingleStepResult(
@@ -639,6 +694,22 @@ export function getToolCallOutputItem(
   toolCall: protocol.FunctionCallItem,
   output: string | unknown,
 ): FunctionCallResultItem {
+  if (isToolOutputWithMedia(output)) {
+    return {
+      type: 'function_call_result',
+      name: toolCall.name,
+      callId: toolCall.callId,
+      status: 'completed',
+      output: {
+        type: 'text',
+        text: output.text, // Only text goes to OpenAI
+      },
+      providerData: {
+        media: output.media, // Preserve media for processing
+      },
+    };
+  }
+
   return {
     type: 'function_call_result',
     name: toolCall.name,
@@ -649,6 +720,16 @@ export function getToolCallOutputItem(
       text: toSmartString(output),
     },
   };
+}
+
+// Add type guard
+function isToolOutputWithMedia(output: unknown): output is ToolOutputWithMedia {
+  return (
+    typeof output === 'object' &&
+    output !== null &&
+    'text' in output &&
+    typeof (output as any).text === 'string'
+  );
 }
 
 /**
