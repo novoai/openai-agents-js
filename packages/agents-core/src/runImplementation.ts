@@ -1106,6 +1106,7 @@ export async function executeHandoffCalls<
             : originalInput,
           preHandoffItems: [...preStepItems],
           newItems: [...newStepItems],
+          runContext,
         };
 
         const filtered = inputFilter(handoffInputData);
